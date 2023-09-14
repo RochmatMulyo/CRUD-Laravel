@@ -22,7 +22,7 @@ class _TambahDataState extends State<TambahData> {
     String url = Platform.isAndroid
         ? 'http://10.0.2.2/Flutter/index.php'
         : 'http://localhost/Flutter/index.php';
-    
+
     Map<String, String> headers = {'Content-Type': 'application/json'};
     String jsonBody = '{"nama": "$nama", "jurusan": "$jurusan"}';
     var response = await http.post(

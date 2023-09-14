@@ -19,8 +19,8 @@ class ListData extends StatefulWidget {
 class _ListDataState extends State<ListData> {
   List<Map<String, String>> dataMahasiswa = [];
   String url = Platform.isAndroid
-      ? 'http://10.0.2.2/Flutter/index.php'
-      : 'http://localhost/Flutter/index.php';
+      ? 'http://10.0.2.2:8080/Flutter/index.php'
+      : 'http://localhost:8080/Flutter/index.php';
   @override
   void initState() {
     super.initState();
@@ -87,28 +87,23 @@ class _ListDataState extends State<ListData> {
                     IconButton(
                       icon: Icon(Icons.visibility),
                       onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => DetailMahasiswa(id:id))
-                        );
-                        
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => DetailMahasiswa(id: id)));
                       },
                     ),
                     IconButton(
                       icon: Icon(Icons.edit),
                       onPressed: () {
-                        
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder : (context) => EditData(id: id,)
-                          )
-                        );
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => EditData(
+                                  id: id,
+                                )));
                       },
                     ),
                     IconButton(
                       icon: Icon(Icons.delete),
                       onPressed: () {
-                        deleteData(int.parse(id!))
-                            .then((result) {
+                        deleteData(int.parse(id!)).then((result) {
                           if (result['pesan'] == 'berhasil') {
                             showDialog(
                                 context: context,
